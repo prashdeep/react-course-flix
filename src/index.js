@@ -2,13 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter} from 'react-router-dom';
-import Route from 'react-router-dom/Route';
+import {BrowserRouter, Route, NavLink} from 'react-router-dom';
 import AddCourse from './components/AddCourse';
 
 ReactDOM.render(
     <BrowserRouter>
-
+        <ul>
+            <li>
+                <NavLink activeStyle={{color:'red'}} exact to="/">Home</NavLink>
+            </li>
+            <li>
+                <NavLink  activeStyle={{color:'red'}} exact to="/add">Add Course</NavLink>
+            </li>
+            <li>
+                <NavLink activeStyle={{color:'red'}} exact to="/details">Course Details</NavLink>
+            </li>
+        </ul>
        <Route path="/" exact component={App}/>
        <Route path="/add" exact component={AddCourse}/>
 
