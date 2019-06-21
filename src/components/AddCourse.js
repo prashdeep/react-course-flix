@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class AddCourse extends React.Component {
 
@@ -37,6 +38,12 @@ class AddCourse extends React.Component {
     handleSubmit(event){
         event.preventDefault();
         console.log(event.target.courseName.value);
+        const course = {};
+        const promise = axios.post('http://jsonplaceholder.typicode.com/courses',{
+            method:'POST',
+            body:course
+        })
+        promise.then(response => response.data)
 
 
     }
