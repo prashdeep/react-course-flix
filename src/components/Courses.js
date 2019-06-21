@@ -7,9 +7,7 @@ class Courses extends React.Component {
         this.handleCourseClick = this.handleCourseClick.bind(this);
     }
 
-    handleCourseClick(event){
-        console.log(event.target.id);
-    }
+
     render(){
         console.log(this.props);
         return (
@@ -20,7 +18,7 @@ class Courses extends React.Component {
                         {
                             this.props.data.map(course => <li id={course}
                                     key={course} 
-                                    onClick={(event)=> this.handleCourseClick(event)}>{course}</li>)
+                                    onClick={(event)=> this.props.handleClick(event)}>{course}</li>)
                         }
                         </ul>
                     ): <h1> There are no Courses for Display </h1>
