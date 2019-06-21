@@ -11,6 +11,7 @@ class AddCourse extends React.Component {
             invalidCourseName:''
         };
         this.handleCourseNameChange = this.handleCourseNameChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleCourseNameChange(event){
@@ -33,18 +34,18 @@ class AddCourse extends React.Component {
 
     }
 
-    handleSubmit(){
-        let course={};
-        course.name = this.state.courseName;
+    handleSubmit(event){
+        event.preventDefault();
+        console.log(event.target.courseName.value);
 
-        
+
     }
    
     render(){
         return (
             <div className="row">
                 <div className="col-md-6">
-                <form>
+                <form onSubmit={(event)=> this.handleSubmit(event)}>
                         <div className="form-group">
                             <label >Course Name</label>
                             <input 
