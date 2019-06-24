@@ -7,16 +7,14 @@ let rootReducer = function(currentState = courses, action){
     switch(action.type){
         case 'REMOVE_COURSE':
                 return removeCourseFromArray(action.index, currentState);
-
+        default:
+            return currentState        
     }
-    console.log(`The current state of the application is` );
-    console.log(currentState);
-    return currentState;
 }
 
 function removeCourseFromArray(index, state){
-    
-    return state.splice(index, 1);
+
+    return [...state.splice(0, index), ...state.splice(index + 1)];
 }
 
 export default rootReducer;
