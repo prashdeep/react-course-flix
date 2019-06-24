@@ -5,6 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, NavLink} from 'react-router-dom';
 import AddCourse from './components/AddCourse';
 import CourseDetail from './components/CourseDetail';
+import { createStore } from 'redux';
+import rootReducer from './redux/reducer';
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
     <BrowserRouter>
