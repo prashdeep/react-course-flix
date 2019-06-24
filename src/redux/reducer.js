@@ -14,7 +14,7 @@ let rootReducer = function(currentState = courses, action){
 
 function removeCourseFromArray(index, state){
 
-    return [...state.splice(0, index), ...state.splice(index + 1)];
+    return [...state.slice(0, index), ...state.slice(index + 1)];
 }
 
 export default rootReducer;
