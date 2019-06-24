@@ -11,6 +11,7 @@ export function addCourse(course){
 
 //action generators
 export function removeCourse(index){
+    console.log('called by the component after component did mount');
     //action is just a javascript object
     return {
         type:"REMOVE_COURSE",

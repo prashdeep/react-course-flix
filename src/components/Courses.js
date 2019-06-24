@@ -6,6 +6,10 @@ class Courses extends React.Component {
         super(props);
     }
 
+    componentDidMount(){
+        console.log('component mounted ....')
+        this.props.removeCourse(2);
+    }
 
     render(){
         console.log(this.props);
