@@ -7,32 +7,35 @@ import AddCourse from './components/AddCourse';
 import CourseDetail from './components/CourseDetail';
 import { createStore } from 'redux';
 import rootReducer from './redux/reducer';
+import {Provider} from 'react-redux';
 
 const store = createStore(rootReducer);
 
 ReactDOM.render(
-    <BrowserRouter>
-        <ul>
-            <li>
-                <NavLink activeStyle={{color:'red'}} exact to="/">Home</NavLink>
-            </li>
-            <li>
-                <NavLink  activeStyle={{color:'red'}} exact to="/add">Add Course</NavLink>
-            </li>
-            <li>
-                <NavLink activeStyle={{color:'red'}} exact to="/courses/4">Course Details</NavLink>
-            </li>
-        </ul>
-       <Route path="/" exact component={App}/>
-       <Route path="/add" exact component={AddCourse}/>
+    <Provider store={store}>
+        <BrowserRouter>
+            <ul>
+                <li>
+                    <NavLink activeStyle={{color:'red'}} exact to="/">Home</NavLink>
+                </li>
+                <li>
+                    <NavLink  activeStyle={{color:'red'}} exact to="/add">Add Course</NavLink>
+                </li>
+                <li>
+                    <NavLink activeStyle={{color:'red'}} exact to="/courses/4">Course Details</NavLink>
+                </li>
+            </ul>
+        <Route path="/" exact component={App}/>
+        <Route path="/add" exact component={AddCourse}/>
 
-       <Route path="/courses/:id" exact render={
-           ({match})=>{
-               console.log(match);
-              return (<CourseDetail selectedCourseId={match.params.id}/>)
-            }
-        }/>
-    </BrowserRouter>, 
+        <Route path="/courses/:id" exact render={
+            ({match})=>{
+                console.log(match);
+                return (<CourseDetail selectedCourseId={match.params.id}/>)
+                }
+            }/>
+        </BrowserRouter>
+    </Provider>, 
     
     document.getElementById('root'));
 

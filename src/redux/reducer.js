@@ -1,8 +1,9 @@
 import courses from '../data/courses';
 
 let rootReducer = function(currentState = courses, action){
-    console.log(`Action is ${action}`)
-    console.log(`The current state of the application is ${currentState}`);
+    console.log(action);
+    console.log(`The current state of the application is` );
+    console.log(currentState);
     return currentState;
 }
 
